@@ -1,0 +1,9 @@
+Phase,Model,Samples,Accuracy,Precision,Recall,F1_Score,ROC_AUC,TN,FP,FN,TP
+Phase 1: Classic 20% Test Set,Random Forest,17257,0.9821,0.9827,0.9807,0.9817,0.9979,8665,146,163,8283
+Phase 1: Classic 20% Test Set,BiLSTM,17257,0.9812,0.9701,0.9921,0.981,0.9978,8553,258,67,8379
+"Phase 2: Modern Blind Test (1,000)",Random Forest,1000,0.908,0.9658,0.846,0.9019,0.9821,485,15,77,423
+"Phase 2: Modern Blind Test (1,000)",BiLSTM,1000,0.916,0.9177,0.914,0.9158,0.9742,459,41,43,457
+"Phase 2: Modern Blind Test (1,000)",Hybrid Ensemble (RF+BiLSTM),1000,0.924,0.9327,0.914,0.9232,0.9841,467,33,43,457
+Phase 3: Low-Indicator Subset,Random Forest,249,0.8755,0.9487,0.5606,0.7048,0.9646,181,2,29,37
+Phase 3: Low-Indicator Subset,BiLSTM,249,0.8996,0.8154,0.803,0.8092,0.961,171,12,13,53
+Phase 3: Low-Indicator Subset,Hybrid Ensemble (RF+BiLSTM),249,0.9157,0.8571,0.8182,0.8372,0.9729,174,9,12,54

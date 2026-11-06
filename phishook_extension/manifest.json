@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "NEXUS // Phishing Email Detector",
+  "version": "1.0.0",
+  "description": "Local AI Phishing Detection using Random Forest (TF-IDF) and Bidirectional LSTM models with Cloudflare Radar URL verification.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "NEXUS Security"
+  },
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "nexus-security-scanner@thesis.local",
+      "strict_min_version": "109.0"
+    }
+  }
+}

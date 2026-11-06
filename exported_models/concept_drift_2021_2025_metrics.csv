@@ -1,0 +1,16 @@
+Year,Threat_Profile,Model,Samples,Jaccard_Sim,Vocab_Overlap,Accuracy,Precision,Recall,F1_Score,ROC_AUC,TN,FP,FN,TP
+2021,Traditional Keyword-Heavy Phishing,Random Forest,400,0.3783,0.7644,0.9725,0.9479,1.0,0.9732,1.0,189,11,0,200
+2021,Traditional Keyword-Heavy Phishing,BiLSTM,400,0.3783,0.7644,0.9775,0.9569,1.0,0.978,1.0,191,9,0,200
+2021,Traditional Keyword-Heavy Phishing,Hybrid Ensemble,400,0.3783,0.7644,0.985,0.9709,1.0,0.9852,1.0,194,6,0,200
+2022,Early Transitional Social Engineering,Random Forest,400,0.3946,0.7281,0.99,0.9804,1.0,0.9901,0.9999,196,4,0,200
+2022,Early Transitional Social Engineering,BiLSTM,400,0.3946,0.7281,0.985,0.9709,1.0,0.9852,1.0,194,6,0,200
+2022,Early Transitional Social Engineering,Hybrid Ensemble,400,0.3946,0.7281,0.9925,0.9852,1.0,0.9926,1.0,197,3,0,200
+2023,Mixed Corporate & Spear-Phishing,Random Forest,400,0.3861,0.6872,0.9925,0.9852,1.0,0.9926,1.0,197,3,0,200
+2023,Mixed Corporate & Spear-Phishing,BiLSTM,400,0.3861,0.6872,0.975,0.9524,1.0,0.9756,0.9964,190,10,0,200
+2023,Mixed Corporate & Spear-Phishing,Hybrid Ensemble,400,0.3861,0.6872,0.9825,0.9662,1.0,0.9828,0.9999,193,7,0,200
+2024,Finance-Adapted & Early LLM Phishing,Random Forest,400,0.3533,0.653,0.945,0.9785,0.91,0.943,0.9946,196,4,18,182
+2024,Finance-Adapted & Early LLM Phishing,BiLSTM,400,0.3533,0.653,0.9325,0.9261,0.94,0.933,0.9866,185,15,12,188
+2024,Finance-Adapted & Early LLM Phishing,Hybrid Ensemble,400,0.3533,0.653,0.945,0.9495,0.94,0.9447,0.9921,190,10,12,188
+2025,Modern Standard: Pure LLM Semantic Evasion,Random Forest,400,0.3117,0.5626,0.84,0.9658,0.705,0.815,0.9685,195,5,59,141
+2025,Modern Standard: Pure LLM Semantic Evasion,BiLSTM,400,0.3117,0.5626,0.8825,0.9135,0.845,0.8779,0.9561,184,16,31,169
+2025,Modern Standard: Pure LLM Semantic Evasion,Hybrid Ensemble,400,0.3117,0.5626,0.8825,0.9135,0.845,0.8779,0.9721,184,16,31,169

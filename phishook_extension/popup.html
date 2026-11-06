@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NEXUS Security</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div id="app" data-state="safe">
+  <!-- Subtle background tier indicator -->
+  <div class="bg-watermark" id="bgWatermark">01</div>
+
+  <!-- Clean NEXUS Header -->
+  <header class="hdr">
+    <div class="hdr-left">
+      <div class="brand-tag">
+        <span class="brand-title">NEXUS</span>
+        <span class="accent-pip"></span>
+      </div>
+      <div class="brand-sub">LOCAL AI PHISHING DETECTOR // V1.0</div>
+    </div>
+    <button id="active" class="toggle on" aria-pressed="true">
+      <span id="activeTxt">ACTIVE</span><i></i>
+    </button>
+  </header>
+
+  <main class="body">
+    <!-- 01. Model Selection (Interactive) -->
+    <div class="sec-label"><span>01 // DETECTION MODEL</span><em>LOCAL INFERENCE</em></div>
+    <div class="seg model" role="group" aria-label="Detection model">
+      <button data-model="Random Forest">RANDOM FOREST</button>
+      <button data-model="LSTM">Bi-LSTM</button>
+      <button data-model="Both" class="on">HYBRID (BOTH)</button>
+    </div>
+
+    <!-- 02. Assessed Threat Level (Strictly Read-Only Status Indicator!) -->
+    <div class="sec-label"><span>02 // ASSESSED RISK LEVEL</span><em id="stateCode">LOW RISK</em></div>
+    <div class="status-strip" role="status" aria-live="polite">
+      <div class="status-pill" data-k="safe">SAFE</div>
+      <div class="status-pill" data-k="suspicious">SUSPICIOUS</div>
+      <div class="status-pill" data-k="critical">HIGHLY SUSPICIOUS</div>
+    </div>
+
+    <!-- Target / Domain Bar -->
+    <div class="url-bar">
+      <span class="url-tag">SOURCE</span>
+      <span class="proto" id="proto">HTTPS://</span>
+      <b id="host">scanning...</b>
+      <em id="age">0 WORDS</em>
+    </div>
+
+    <!-- Hexagonal Trust Score & Assessment Summary -->
+    <section class="gauge-panel">
+      <div class="hex-wrap">
+        <svg viewBox="0 0 92 92" class="hex-svg">
+          <polygon points="46,4 85,25 85,67 46,88 7,67 7,25" class="hex-track"/>
+          <polygon id="hexArc" points="46,4 85,25 85,67 46,88 7,67 7,25" class="hex-fill"/>
+        </svg>
+        <div class="num">
+          <small>SAFETY</small>
+          <b id="score">--</b>
+          <span class="unit">%</span>
+        </div>
+      </div>
+      <div class="verdict">
+        <div id="tag" class="tag">ANALYZING CONTENT</div>
+        <h2 id="title">Scanning Email...</h2>
+        <p id="desc">Evaluating lexical and sequential phishing indicators locally.</p>
+        <div class="verdict-meta">
+          <span>SUBJECT / SENDER: <b id="target">NONE</b></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. Side-by-Side Model Probability Breakdown -->
+    <section class="bars-panel">
+      <div class="sec-label"><span>03 // MODEL PROBABILITY BREAKDOWN</span><em id="activeModelBadge">VIEW: HYBRID</em></div>
+
+      <div class="mbar-row" id="barRowRF">
+        <div class="mbar-hdr">
+          <span><b>RANDOM FOREST</b> (TF-IDF KEYWORDS)</span>
+          <b id="rfPctTxt" class="mbar-val">0% RISK</b>
+        </div>
+        <div class="mbar-track"><div id="rfBarFill" class="mbar-fill" style="width:0%"></div></div>
+      </div>
+
+      <div class="mbar-row" id="barRowLSTM">
+        <div class="mbar-hdr">
+          <span><b>Bi-LSTM</b> (WORD SEQUENCE CONTEXT)</span>
+          <b id="lstmPctTxt" class="mbar-val">0% RISK</b>
+        </div>
+        <div class="mbar-track"><div id="lstmBarFill" class="mbar-fill" style="width:0%"></div></div>
+      </div>
+
+      <div class="mbar-row" id="barRowBoth">
+        <div class="mbar-hdr">
+          <span><b>HYBRID ENSEMBLE</b> (COMBINED SCORE)</span>
+          <b id="bothPctTxt" class="mbar-val">0% RISK</b>
+        </div>
+        <div class="mbar-track"><div id="bothBarFill" class="mbar-fill" style="width:0%"></div></div>
+      </div>
+    </section>
+
+    <!-- Content Analysis Details -->
+    <section id="rows" class="telemetry-rows"></section>
+
+    <!-- 04. Extracted Email Links & Cloudflare URL Scanner -->
+    <section class="links-panel">
+      <div class="sec-label">
+        <span>04 // EMAIL LINKS &amp; URL SCANNER</span>
+        <em id="linkCountBadge">0 LINKS</em>
+      </div>
+      <div class="link-controls">
+        <select id="linkSelect" class="link-select">
+          <option value="">No links detected in email body</option>
+        </select>
+        <button id="scanLinkBtn" class="btn-radar" title="Copy URL and open Cloudflare Radar URL Scanner">
+          SCAN LINK &#8599;
+        </button>
+      </div>
+      <div class="radar-hint" id="radarHint">
+        Select an extracted link and click <b>SCAN LINK</b> to copy it and open <code>radar.cloudflare.com/scan</code>.
+      </div>
+    </section>
+  </main>
+
+  <footer class="dock">
+    <div class="acts">
+      <button id="main" class="primary">RESCAN CURRENT EMAIL / TAB</button>
+      <button id="cloudflareHomeBtn" class="ghost" title="Open Cloudflare Radar Scanner">RADAR</button>
+    </div>
+    <div class="dock-foot">
+      <span id="foot">NEXUS SECURITY // 100% LOCAL IN-BROWSER ENGINE</span>
+      <span class="ver-deco">MV3</span>
+    </div>
+  </footer>
+</div>
+<script src="models_bundle.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
